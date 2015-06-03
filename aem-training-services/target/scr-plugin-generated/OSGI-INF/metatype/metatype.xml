@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
-    <OCD id="com.epam.aemtraining.services.GoodbyeWorldService" name="%com.epam.aemtraining.services.GoodbyeWorldService.name" description="%com.epam.aemtraining.services.GoodbyeWorldService.description"/>
-    <Designate pid="com.epam.aemtraining.services.GoodbyeWorldService">
-        <Object ocdref="com.epam.aemtraining.services.GoodbyeWorldService"/>
-    </Designate>
-</metatype:MetaData>
