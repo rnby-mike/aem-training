@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>com.epam.aemtraining - aem-training-view</comment>
+<entry key="createdBy">mikhail</entry>
+<entry key="name">aem-training-view</entry>
+<entry key="created">2015-06-03T16:52:31.462+0300</entry>
+<entry key="groupId">com.epam.aemtraining</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.epam.aemtraining</entry>
+<entry key="description">All of the CQ component and template definitions for the 'AEM Training Project' project.
+
+        During development, the files in this module should be sync'd to your CQ instance using the FileVault command
+        line tool available with CQ. There is also a plugin for Eclipse called "vaultclipse" that can be used instead
+        of the command line tool.
+
+        It is recommended that this module not contain any Java code and instead Java code should be placed in either
+        the aem-training-taglib module or the aem-training-services module as appropriate.</entry>
+<entry key="artifactId">aem-training-view</entry>
+<entry key="path">/etc/packages/com.epam.aemtraining/aem-training-view.zip</entry>
+</properties>
