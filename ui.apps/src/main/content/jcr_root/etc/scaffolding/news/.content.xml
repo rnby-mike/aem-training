@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2015-06-11T11:24:26.706+03:00"
+        cq:lastModifiedBy="admin"
+        cq:targetPath="/content/aemnews/en/news"
+        cq:targetTemplate="/apps/aemnews/templates/page-news-items"
+        cq:template="/libs/wcm/scaffolding/templates/scaffolding"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="News"
+        sling:resourceType="wcm/scaffolding/components/scaffolding">
+        <dialog/>
+    </jcr:content>
+</jcr:root>

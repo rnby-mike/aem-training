@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <geometrixx-outdoors/>
+    <geometrixx/>
+    <jcr:content
+        cq:lastModified="{Date}2009-04-01T12:32:27.488+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/wcm/scaffolding/templates/scaffolding"
+        jcr:description="Default scaffolding that is used as fallback if no other can be found for update.&lt;br>This scaffolding can't be used to create new pages and should not be modified."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Default Page Scaffolding"
+        sling:resourceType="wcm/scaffolding/components/scaffolding">
+        <dialog/>
+    </jcr:content>
+    <resource/>
+    <news/>
+</jcr:root>

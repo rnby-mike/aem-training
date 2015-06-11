@@ -1,0 +1,25 @@
+.news {
+	display: block;
+	padding: 5px;
+	clear: both;
+}
+
+.news-content { 
+	position: inherit;
+	display: block;
+}
+
+.news-content .img{
+	display: inline-block;
+	background-size: contain;
+	float: left;
+}
+.news-content .img img{
+	max-height: 200px;
+	max-width: 200px;
+}
+
+
+.news-content .text{
+	display: inline-block;
+}
