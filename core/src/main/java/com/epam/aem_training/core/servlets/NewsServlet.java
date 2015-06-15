@@ -28,7 +28,7 @@ import java.io.IOException;
         label = "Samples - Sling All Methods Servlet",
         description = "Sample implementation of a Sling All Methods Servlet.",
         methods = { "GET" }, // Ignored if paths is set - Defaults to GET if not specified
-        resourceTypes = {"aemnews/components/structure/news-page"}, // Ignored if paths is set
+        resourceTypes = {"aemtraining/components/structure/news-page"}, // Ignored if paths is set
         selectors = {"JSON"},
         extensions = { "html", "htm" }  // Ignored if paths is set
 )
