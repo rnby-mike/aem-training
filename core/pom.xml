@@ -16,15 +16,15 @@
 --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.epam</groupId>
-        <artifactId>aem-news</artifactId>
+        <groupId>com.epam</groupId>
+        <artifactId>aem-training</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>aem-news.core</artifactId>
+    <artifactId>aem-training.core</artifactId>
     <packaging>bundle</packaging>
-    <name>aem-news - Core</name>
-    <description>Core bundle for aem-news</description>
+    <name>aem-training - Core</name>
+    <description>Core bundle for aem-training</description>
     <build>
         <plugins>
             <plugin>
@@ -43,7 +43,7 @@
                             artifactId2;inline=true
                         </Embed-Dependency>
                         -->
-                        <Sling-Model-Packages>org.epam.aem_news.core</Sling-Model-Packages>
+                        <Sling-Model-Packages>com.epam.aem_training.core</Sling-Model-Packages>
                     </instructions>
                 </configuration>
             </plugin>
@@ -61,10 +61,10 @@
                         <groupId>org.apache.sling</groupId>
                         <artifactId>maven-sling-plugin</artifactId>
                         <configuration>
-                            <!-- Note that this requires /apps/aemnews/install to exist!!          -->
+                            <!-- Note that this requires /apps/aemtraining/install to exist!!          -->
                             <!--    This is typically the case when ui.apps is deployed first                -->
-                            <!--    Otherwise, create /apps/aemnews/install manually (CRXDE|Lite)  -->
-                            <slingUrlSuffix>/apps/aemnews/install/</slingUrlSuffix>
+                            <!--    Otherwise, create /apps/aemtraining/install manually (CRXDE|Lite)  -->
+                            <slingUrlSuffix>/apps/aemtraining/install/</slingUrlSuffix>
                             <failOnError>true</failOnError>
                         </configuration>
                     </plugin>

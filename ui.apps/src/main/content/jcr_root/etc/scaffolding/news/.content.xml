@@ -4,8 +4,8 @@
     <jcr:content
         cq:lastModified="{Date}2015-06-11T11:24:26.706+03:00"
         cq:lastModifiedBy="admin"
-        cq:targetPath="/content/aemnews/en/news"
-        cq:targetTemplate="/apps/aemnews/templates/page-news-items"
+        cq:targetPath="/content/aemtraining/en/news"
+        cq:targetTemplate="/apps/aemtraining/templates/page-news-items"
         cq:template="/libs/wcm/scaffolding/templates/scaffolding"
         jcr:primaryType="cq:PageContent"
         jcr:title="News"

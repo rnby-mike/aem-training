@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/aemnews">
-        <exclude pattern="/apps/aemnews/install" />
+    <filter root="/apps/aemtraining">
+        <exclude pattern="/apps/aemtraining/install" />
     </filter>
     <filter root="/apps/sling" />
-    <filter root="/etc/designs/aemnews"/>
+    <filter root="/etc/designs/aemtraining"/>
 </workspaceFilter>

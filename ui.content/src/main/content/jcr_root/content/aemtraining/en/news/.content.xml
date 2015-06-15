@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2015-06-11T12:06:03.543+03:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/aemtraining/templates/news-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="EPAM News"
+        sling:resourceType="aemtraining/components/structure/news-page">
+        <title
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemtraining/components/content/title"/>
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemtraining/components/content/text"
+                text="&lt;p>This is EPAM news portal&lt;/p>"
+                textIsRich="true"/>
+            <helloworld2
+                jcr:created="{Date}2015-06-11T11:59:46.619+03:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2015-06-11T11:59:46.619+03:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemtraining/components/content/helloworld2"/>
+            <listofnewsjsp
+                jcr:created="{Date}2015-06-11T12:06:03.542+03:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2015-06-11T12:06:03.542+03:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemtraining/components/content/listOfNewsJsp"/>
+        </par>
+    </jcr:content>
+    <first_news/>
+    <second_news/>
+    <thrid_news/>
+</jcr:root>

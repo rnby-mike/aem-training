@@ -20,8 +20,8 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>org.epam</groupId>
-        <artifactId>aem-news</artifactId>
+        <groupId>com.epam</groupId>
+        <artifactId>aem-training</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -29,10 +29,10 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-news.it.tests</artifactId>
+    <artifactId>aem-training.it.tests</artifactId>
     <packaging>bundle</packaging>
-    <name>aem-news - Integration Tests Bundles</name>
-    <description>Bundles for Integration Tests for aem-news</description>
+    <name>aem-training - Integration Tests Bundles</name>
+    <description>Bundles for Integration Tests for aem-training</description>
 
     <!-- <scm>
         <connection></connection>
@@ -98,8 +98,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.epam</groupId>
-            <artifactId>aem-news.core</artifactId>
+            <groupId>com.epam</groupId>
+            <artifactId>aem-training.core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>bundle</type>
             <scope>provided</scope>

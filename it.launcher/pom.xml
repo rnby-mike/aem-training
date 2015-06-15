@@ -17,8 +17,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.epam</groupId>
-        <artifactId>aem-news</artifactId>
+        <groupId>com.epam</groupId>
+        <artifactId>aem-training</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -26,10 +26,10 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-news.it.launcher</artifactId>
+    <artifactId>aem-training.it.launcher</artifactId>
     <packaging>jar</packaging>
-    <name>aem-news - Integration Tests Launcher</name>
-    <description>Integration Tests Launcher for aem-news</description>
+    <name>aem-training - Integration Tests Launcher</name>
+    <description>Integration Tests Launcher for aem-training</description>
 
     <!-- <scm>
         <connection></connection>
@@ -224,8 +224,8 @@
                                 -->
                                 <sling.additional.bundle.1>org.apache.sling.junit.core</sling.additional.bundle.1>
                                 <sling.additional.bundle.2>org.apache.sling.junit.scriptable</sling.additional.bundle.2>
-                                <sling.additional.bundle.3>aem-news.it.tests</sling.additional.bundle.3>
-                                <sling.additional.bundle.4>aem-news.core</sling.additional.bundle.4>
+                                <sling.additional.bundle.3>aem-training.it.tests</sling.additional.bundle.3>
+                                <sling.additional.bundle.4>aem-training.core</sling.additional.bundle.4>
                                 <sling.additional.bundle.5>org.apache.sling.junit.remote</sling.additional.bundle.5>
                                 <sling.additional.bundle.6>org.apache.sling.testing.tools</sling.additional.bundle.6>
                                 <sling.additional.bundle.7>httpclient-osgi</sling.additional.bundle.7>
@@ -317,13 +317,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.epam</groupId>
-            <artifactId>aem-news.it.tests</artifactId>
+            <groupId>com.epam</groupId>
+            <artifactId>aem-training.it.tests</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.epam</groupId>
-            <artifactId>aem-news.core</artifactId>
+            <groupId>com.epam</groupId>
+            <artifactId>aem-training.core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

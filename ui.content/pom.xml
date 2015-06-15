@@ -20,8 +20,8 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>org.epam</groupId>
-        <artifactId>aem-news</artifactId>
+        <groupId>com.epam</groupId>
+        <artifactId>aem-training</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -29,10 +29,10 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-news.ui.content</artifactId>
+    <artifactId>aem-training.ui.content</artifactId>
     <packaging>content-package</packaging>
-    <name>aem-news - UI content</name>
-    <description>UI content package for aem-news</description>
+    <name>aem-training - UI content</name>
+    <description>UI content package for aem-training</description>
 
     <!-- <scm>
         <connection></connection>
@@ -117,12 +117,12 @@
                     <filterSource>${basedir}/META-INF/vault/filter.xml</filterSource>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
-                    <group>aem-news Content Package</group>
+                    <group>aem-training Content Package</group>
                     <embeddeds>
                         <embedded>
-                            <groupId>org.epam</groupId>
-                            <artifactId>aem-news.core</artifactId>
-                            <target>/apps/aemnews/install</target>
+                            <groupId>com.epam</groupId>
+                            <artifactId>aem-training.core</artifactId>
+                            <target>/apps/aemtraining/install</target>
                         </embedded>
                     </embeddeds>
                 </configuration>
@@ -193,8 +193,8 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>org.epam</groupId>
-            <artifactId>aem-news.core</artifactId>
+            <groupId>com.epam</groupId>
+            <artifactId>aem-training.core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

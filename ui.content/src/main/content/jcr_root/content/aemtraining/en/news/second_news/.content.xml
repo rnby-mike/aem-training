@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2015-06-11T17:24:04.508+03:00"
+        cq:lastModifiedBy="admin"
+        cq:scaffolding="/etc/scaffolding/news"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Second News"
+        sling:resourceType="aemtraining/components/structure/page-news-items">
+        <par jcr:primaryType="nt:unstructured">
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/textimage"
+                text="&lt;p>Second News Second News Second News &lt;/p>&#xa;&lt;p>Second News Second News Second News&lt;/p>&#xa;"
+                textIsRich="true">
+                <image
+                    jcr:lastModified="{Date}2015-06-11T17:24:04.506+03:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/image"
+                    fileReference="/content/dam/geometrixx-outdoors/brand/brand_1_c02.jpg"
+                    imageRotate="0"
+                    width="200"/>
+            </text>
+        </par>
+    </jcr:content>
+</jcr:root>
