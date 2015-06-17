@@ -127,5 +127,17 @@
             <groupId>junit-addons</groupId>
             <artifactId>junit-addons</artifactId>
         </dependency>
+        <dependency>
+			 <groupId>org.twitter4j</groupId>
+			 <artifactId>twitter4j-core</artifactId>
+			 <version>[4.0,)</version>
+			 <scope>compile</scope>
+		 </dependency>
+		<dependency>
+			 <groupId>org.twitter4j</groupId>
+			 <artifactId>twitter4j-stream</artifactId>
+			 <version>[4.0,)</version>
+			 <scope>compile</scope>
+         </dependency>
     </dependencies>
 </project>

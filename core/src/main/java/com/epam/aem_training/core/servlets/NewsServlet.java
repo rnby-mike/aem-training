@@ -1,5 +1,6 @@
 package com.epam.aem_training.core.servlets;
 
+import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -10,6 +11,7 @@ import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
+
 import com.epam.aem_training.core.NewsCrawlerService;
 import com.epam.aem_training.core.models.NewsCrawler;
 import com.epam.aem_training.core.models.NewsCrawler.News;
@@ -33,13 +35,15 @@ import java.io.IOException;
         extensions = { "html", "htm" }  // Ignored if paths is set
 )
 public class NewsServlet extends SlingSafeMethodsServlet {
-
+	
+	@Reference
+	private NewsCrawlerService service;
+	
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
-    	SlingBindings bindings = (SlingBindings) req.getAttribute(SlingBindings.class.getName());
-    	SlingScriptHelper scriptHelper = bindings.getSling();
-    	NewsCrawler crawler = new NewsCrawler(req, scriptHelper.getService(NewsCrawlerService.class));
+    	resp.getWriter().print(service.getPath());
+    	NewsCrawler crawler = new NewsCrawler(req, service);
     	JSONArray json = new JSONArray();
     	for (News item : crawler.getNews()) {
     		JSONObject obj = new JSONObject();
@@ -56,7 +60,6 @@ public class NewsServlet extends SlingSafeMethodsServlet {
     	try {
 			obj.append("news", json);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	resp.setContentType("application/json");
