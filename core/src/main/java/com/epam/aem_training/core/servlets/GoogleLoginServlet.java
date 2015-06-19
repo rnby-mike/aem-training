@@ -47,7 +47,8 @@ public class GoogleLoginServlet extends SlingSafeMethodsServlet {
     		tmp.setPath("/");
     		resp.addCookie(tmp);
     		logger.debug("Logged in");
-    		resp.sendRedirect(req.getHeader("referer"));
+    		String referer = (req.getHeader("referer") != null) ? req.getHeader("referer") : "/content/aemtraining/en/news.html";
+    		resp.sendRedirect(referer);
     	}
     	
     	if (cookie == null) {
