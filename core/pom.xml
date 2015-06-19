@@ -37,6 +37,12 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
+                        <Import-Package>*;resolution:=optional</Import-Package>
+                        <Embed-Dependency>*;scope=compile</Embed-Dependency>
+                        <Embed-Directory>OSGI-INF/lib</Embed-Directory>
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <Export-Package>com.google.api.*</Export-Package>
+                        <Export-Package>com.epam.*</Export-Package>
                         <!--
                         <Embed-Dependency>
                             artifactId1,
@@ -131,13 +137,33 @@
 			 <groupId>org.twitter4j</groupId>
 			 <artifactId>twitter4j-core</artifactId>
 			 <version>[4.0,)</version>
-			 <scope>compile</scope>
+			 <scope>provided</scope>
 		 </dependency>
 		<dependency>
 			 <groupId>org.twitter4j</groupId>
 			 <artifactId>twitter4j-stream</artifactId>
 			 <version>[4.0,)</version>
-			 <scope>compile</scope>
+			 <scope>provided</scope>
          </dependency>
+         <dependency>
+                <groupId>com.google.http-client</groupId>
+                <artifactId>google-http-client</artifactId>
+                <scope>compile</scope>
+             </dependency>
+            <dependency>
+                <groupId>com.google.http-client</groupId>
+                <artifactId>google-http-client-jackson</artifactId>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-web-api</artifactId>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.apis</groupId>
+                <artifactId>google-api-services-oauth2</artifactId>
+                <scope>compile</scope>
+            </dependency>
     </dependencies>
 </project>

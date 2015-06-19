@@ -11,6 +11,7 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.slf4j.Logger;
 
 import twitter4j.FilterQuery;
 import twitter4j.StallWarning;
@@ -25,6 +26,8 @@ import twitter4j.conf.ConfigurationBuilder;
 description = "Twitter stream service")
 @Service(TwitterStreamService.class)
 public class TwitterStreamService {
+	
+	Logger logger = org.slf4j.LoggerFactory.getLogger(getClass());
 
 	private final int QUEUE_CAPACITY = 10000;
 

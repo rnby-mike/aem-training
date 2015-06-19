@@ -4,6 +4,8 @@ import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import twitter4j.JSONArray;
 import twitter4j.Query;
@@ -30,10 +32,12 @@ import java.util.List;
 public class TwitterStreamServlet extends SlingSafeMethodsServlet {
 	
 	private final int TWITTER_API_TIMEOUT = 10000;
+	private final Logger logger = LoggerFactory.getLogger("com.epam.aemtraining");
 	
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
+    	logger.debug("Twitter request");
     	resp.setContentType("text/event-stream;charset=UTF-8");
     	resp.setHeader("Cache-Control", "no-cache");
     	resp.setHeader("Connection", "keep-alive");
