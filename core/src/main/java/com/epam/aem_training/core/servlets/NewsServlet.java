@@ -35,34 +35,34 @@ import java.io.IOException;
         extensions = { "html", "htm" }  // Ignored if paths is set
 )
 public class NewsServlet extends SlingSafeMethodsServlet {
-	
-	@Reference
-	private NewsCrawlerService service;
-	
+    
+    @Reference
+    private NewsCrawlerService service;
+    
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
-    	resp.getWriter().print(service.getPath());
-    	NewsCrawler crawler = new NewsCrawler(req, service);
-    	JSONArray json = new JSONArray();
-    	for (News item : crawler.getNews()) {
-    		JSONObject obj = new JSONObject();
-    		try {
-    			obj.append("title", item.getTitle().toString());
-    			obj.append("text", item.getText().toString());
-    			obj.append("img_src", item.getImgSrc().toString());
-    		} catch (JSONException e) {
-				e.printStackTrace();
-			}
-    		json.put(obj);
-		}
-    	JSONObject obj = new JSONObject();
-    	try {
-			obj.append("news", json);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-    	resp.setContentType("application/json");
+        resp.getWriter().print(service.getPath());
+        NewsCrawler crawler = new NewsCrawler(req, service);
+        JSONArray json = new JSONArray();
+        for (News item : crawler.getNews()) {
+            JSONObject obj = new JSONObject();
+            try {
+                obj.append("title", item.getTitle().toString());
+                obj.append("text", item.getText().toString());
+                obj.append("img_src", item.getImgSrc().toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            json.put(obj);
+        }
+        JSONObject obj = new JSONObject();
+        try {
+            obj.append("news", json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        resp.setContentType("application/json");
         resp.getWriter().print(obj);
 //        resp.flushBuffer();
     }

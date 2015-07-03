@@ -23,43 +23,43 @@ import com.epam.aem_training.core.GoogleAuthHelperService;
         paths = {"/services/googlelogin"}
 )
 public class GoogleLoginServlet extends SlingSafeMethodsServlet {
-	
-	@Reference
-	private GoogleAuthHelperService helper;
-	
+    
+    @Reference
+    private GoogleAuthHelperService helper;
+    
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
-    	
-    	Logger logger = LoggerFactory.getLogger(this.getClass());
-    	
-    	resp.setCharacterEncoding("UTF-8");
-    	resp.setContentType("text/html;charset=UTF-8");
-    	HttpSession session = req.getSession();
-    	PrintWriter out = resp.getWriter();
+        
+        Logger logger = LoggerFactory.getLogger(this.getClass());
+        
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
+        HttpSession session = req.getSession();
+        PrintWriter out = resp.getWriter();
 
-    	Cookie cookie = req.getCookie("userId");
-    	
-    	if (req.getParameter("code") != null) {
-    		String userId = helper.exchangeCodeForCredential(req.getParameter("code"));
-    		out.println(userId);
-    		Cookie tmp = new Cookie("userId", userId);
-    		tmp.setPath("/");
-    		tmp.setMaxAge(60*10);
-    		resp.addCookie(tmp);
-    		logger.debug("Logged in");
-    		String referer = (req.getHeader("referer") != null) ? req.getHeader("referer") : "/content/aemtraining/en/news.html";
-    		resp.sendRedirect(referer);
-    	}
-    	
-    	if (cookie == null) {
-    		out.println("<a href='" + helper.buildLoginUrl() + "'>log in with google</a>");
-    	} else {
-    		out.println("<pre>");
-    		out.print("Hi, ");
-			out.println(helper.getUserInfo(cookie.getValue()).getName());
-			out.println("</pre>");
-    	}
-    	
+        Cookie cookie = req.getCookie("userId");
+        
+        if (req.getParameter("code") != null) {
+            String userId = helper.exchangeCodeForCredential(req.getParameter("code"));
+            out.println(userId);
+            Cookie tmp = new Cookie("userId", userId);
+            tmp.setPath("/");
+            tmp.setMaxAge(60*10);
+            resp.addCookie(tmp);
+            logger.debug("Logged in");
+            String referer = (req.getHeader("referer") != null) ? req.getHeader("referer") : "/content/aemtraining/en/news.html";
+            resp.sendRedirect(referer);
+        }
+        
+        if (cookie == null) {
+            out.println("<a href='" + helper.buildLoginUrl() + "'>log in with google</a>");
+        } else {
+            out.println("<pre>");
+            out.print("Hi, ");
+            out.println(helper.getUserInfo(cookie.getValue()).getName());
+            out.println("</pre>");
+        }
+        
     }  
 }

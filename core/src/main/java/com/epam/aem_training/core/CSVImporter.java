@@ -23,46 +23,46 @@ import com.day.cq.commons.jcr.JcrUtil;
 
 @Component(label="CSV to JCR importer", metatype=true)
 @Properties({
-		@Property(name="csv_path", description="Path to csv file", value="/apps/aemtraining/components/content")
+        @Property(name="csv_path", description="Path to csv file", value="/apps/aemtraining/components/content")
 })
 public class CSVImporter {
-	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
-	private Map<String, Object> config;
-	
-	private final String JUMBOTRON_PATH = "/apps/aem-training/components/jumbotron";
-	
-	@Reference
-	private Repository repository;
-	
-	public void doImport() {
-		Session session = null;
-		try {
-			session = repository.login(new SimpleCredentials("admin", "admin".toCharArray()));
-			logger.debug("Session: " + PropertiesUtil.toString(config.get("csv_path"), null));
-			Node copyTo = session.getNode(PropertiesUtil.toString(config.get("csv_path"), "/apps/aemtraining/components/content"));			
-			Node jumbotron = session.getNode(JUMBOTRON_PATH);
-			
-			Node copy = JcrUtil.copy(jumbotron, copyTo, jumbotron.getName());
-			session.save();
-			
-		} catch (LoginException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			logger.debug("Login Error: " + e.getMessage());
-		} catch (RepositoryException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			logger.debug("Repository error:" + e.getMessage());
-		} finally {
-			if (session != null) {
-				session.logout();
-			}
-		}
-	}
-	
-	@Activate
-	@Modified
+    
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private Map<String, Object> config;
+    
+    private final String JUMBOTRON_PATH = "/apps/aem-training/components/jumbotron";
+    
+    @Reference
+    private Repository repository;
+    
+    public void doImport() {
+        Session session = null;
+        try {
+            session = repository.login(new SimpleCredentials("admin", "admin".toCharArray()));
+            logger.debug("Session: " + PropertiesUtil.toString(config.get("csv_path"), null));
+            Node copyTo = session.getNode(PropertiesUtil.toString(config.get("csv_path"), "/apps/aemtraining/components/content"));         
+            Node jumbotron = session.getNode(JUMBOTRON_PATH);
+            
+            Node copy = JcrUtil.copy(jumbotron, copyTo, jumbotron.getName());
+            session.save();
+            
+        } catch (LoginException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            logger.debug("Login Error: " + e.getMessage());
+        } catch (RepositoryException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            logger.debug("Repository error:" + e.getMessage());
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
+    }
+    
+    @Activate
+    @Modified
     protected void activate(final Map<String, Object> config) {
         this.config = config;
         doImport();

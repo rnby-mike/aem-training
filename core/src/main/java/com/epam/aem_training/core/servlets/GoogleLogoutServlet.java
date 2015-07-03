@@ -21,21 +21,21 @@ import com.epam.aem_training.core.GoogleAuthHelperService;
         paths = {"/services/googlelogout"}
 )
 public class GoogleLogoutServlet extends SlingSafeMethodsServlet {
-	
-	@Reference
-	private GoogleAuthHelperService helper;
-	
+    
+    @Reference
+    private GoogleAuthHelperService helper;
+    
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
    
-    	Cookie cookie = req.getCookie("userId");
-    	cookie.setValue(null);
-    	cookie.setPath("/");
-    	cookie.setMaxAge(0);
-    	
-    	resp.addCookie(cookie);
-    	
-    	resp.sendRedirect(req.getHeader("referer"));
+        Cookie cookie = req.getCookie("userId");
+        cookie.setValue(null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        
+        resp.addCookie(cookie);
+        
+        resp.sendRedirect(req.getHeader("referer"));
     }
 }

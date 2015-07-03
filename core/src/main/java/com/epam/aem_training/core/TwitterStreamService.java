@@ -23,104 +23,104 @@ import twitter4j.conf.ConfigurationBuilder;
 description = "Twitter stream service")
 @Service(TwitterStreamService.class)
 public class TwitterStreamService {
-	
-	Logger logger = org.slf4j.LoggerFactory.getLogger(getClass());
+    
+    Logger logger = org.slf4j.LoggerFactory.getLogger(getClass());
 
-	private final int QUEUE_CAPACITY = 10000;
+    private final int QUEUE_CAPACITY = 10000;
 
-	@Property(label = "Filter query", description = "Filter query separated by commas")
-	public static final String QUERY = "query";
-	private String query;
+    @Property(label = "Filter query", description = "Filter query separated by commas")
+    public static final String QUERY = "query";
+    private String query;
 
-	private String[] filters;
+    private String[] filters;
 
-	private class LimitedBlockingQueue extends LinkedList<Status> {
+    private class LimitedBlockingQueue extends LinkedList<Status> {
 
-		final private int capacity;
+        final private int capacity;
 
-		public LimitedBlockingQueue(int capacity) {
-			super();
-			this.capacity = capacity;
-		}
+        public LimitedBlockingQueue(int capacity) {
+            super();
+            this.capacity = capacity;
+        }
 
-		@Override
-		public synchronized void push(Status e) {
-			if (capacity == size()) {
-				removeLast();
-			}
-			super.push(e);
-		}
+        @Override
+        public synchronized void push(Status e) {
+            if (capacity == size()) {
+                removeLast();
+            }
+            super.push(e);
+        }
 
-		public synchronized List<Status> getStatusesSinceDate(Date start) {
-			List<Status> statuses = new LinkedList<Status>();
-			if (isEmpty())
-				return statuses;
-			Iterator<Status> it = iterator();
-			while(it.hasNext()) {
-				Status status = it.next();
-				if (status.getCreatedAt().after(start))
-					statuses.add(status);
-				else
-					break;
-			}
-			return statuses;
-		}
+        public synchronized List<Status> getStatusesSinceDate(Date start) {
+            List<Status> statuses = new LinkedList<Status>();
+            if (isEmpty())
+                return statuses;
+            Iterator<Status> it = iterator();
+            while(it.hasNext()) {
+                Status status = it.next();
+                if (status.getCreatedAt().after(start))
+                    statuses.add(status);
+                else
+                    break;
+            }
+            return statuses;
+        }
 
 
 
-	}
-	private LimitedBlockingQueue statuses = new LimitedBlockingQueue(QUEUE_CAPACITY);
+    }
+    private LimitedBlockingQueue statuses = new LimitedBlockingQueue(QUEUE_CAPACITY);
 
-	@Activate
-	protected void activate(final Map<String, Object> config) {
-		configure(config);
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				StatusListener listener = new StatusListener(){
-					public void onStatus(Status status) {
-						statuses.push(status);
-					}
-					public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {}
-					public void onTrackLimitationNotice(int numberOfLimitedStatuses) {}
+    @Activate
+    protected void activate(final Map<String, Object> config) {
+        configure(config);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StatusListener listener = new StatusListener(){
+                    public void onStatus(Status status) {
+                        statuses.push(status);
+                    }
+                    public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {}
+                    public void onTrackLimitationNotice(int numberOfLimitedStatuses) {}
 
-					public void onScrubGeo(long l, long l1) {
-					}
+                    public void onScrubGeo(long l, long l1) {
+                    }
 
-					public void onStallWarning(StallWarning stallWarning) {
-					}
+                    public void onStallWarning(StallWarning stallWarning) {
+                    }
 
-					public void onException(Exception ex) {
-						ex.printStackTrace();
-					}
-				};
+                    public void onException(Exception ex) {
+                        ex.printStackTrace();
+                    }
+                };
 
-				ConfigurationBuilder cb = new ConfigurationBuilder();
-				cb.setDebugEnabled(true)
-				.setOAuthConsumerKey("pJV4p6FS2yowhSZkkTwmW6gIL")
-				.setOAuthConsumerSecret("RsxKpzRkrtB1K0SzblfIl8K6XnV3ZEhN55nxsysJYyDfgjPvHI")
-				.setOAuthAccessToken("73952106-06WR8OVPMW5m8FN5dW0b9lI7yoJvNaWSqo1iVWhiQ")
-				.setOAuthAccessTokenSecret("OJmx5AwxmDboMMdid9pGIoZDbSjZeeDF0mmXiIb4AohHJ");
+                ConfigurationBuilder cb = new ConfigurationBuilder();
+                cb.setDebugEnabled(true)
+                .setOAuthConsumerKey("pJV4p6FS2yowhSZkkTwmW6gIL")
+                .setOAuthConsumerSecret("RsxKpzRkrtB1K0SzblfIl8K6XnV3ZEhN55nxsysJYyDfgjPvHI")
+                .setOAuthAccessToken("73952106-06WR8OVPMW5m8FN5dW0b9lI7yoJvNaWSqo1iVWhiQ")
+                .setOAuthAccessTokenSecret("OJmx5AwxmDboMMdid9pGIoZDbSjZeeDF0mmXiIb4AohHJ");
 
-//				TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
-//				twitterStream.addListener(listener);
-				// sample() method internally creates a thread which manipulates TwitterStream and calls these adequate listener methods continuously.
-//				twitterStream.filter(new FilterQuery().track(filters));
-//				twitterStream.sample();
-			}
-		}).start();
-	}
+//              TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
+//              twitterStream.addListener(listener);
+                // sample() method internally creates a thread which manipulates TwitterStream and calls these adequate listener methods continuously.
+//              twitterStream.filter(new FilterQuery().track(filters));
+//              twitterStream.sample();
+            }
+        }).start();
+    }
 
-	private void configure(final Map<String, Object> config) {
-		query = PropertiesUtil.toString(config.get(QUERY), "java,GameofThrones");
-		filters = query.split(",");
-	}
+    private void configure(final Map<String, Object> config) {
+        query = PropertiesUtil.toString(config.get(QUERY), "java,GameofThrones");
+        filters = query.split(",");
+    }
 
-	public String[] getFilters() {
-		return filters;
-	}
+    public String[] getFilters() {
+        return filters;
+    }
 
-	public List<Status> getStatusesSinceDate(Date start) {
-		return statuses.getStatusesSinceDate(start);
-	}
+    public List<Status> getStatusesSinceDate(Date start) {
+        return statuses.getStatusesSinceDate(start);
+    }
 }
